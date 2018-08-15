@@ -19,6 +19,7 @@ let configureSqlServerContext =
 let getContext = configureSqlServerContext()
 let getSerie  = SerieRepository.getSerie getContext
 let getEpisode = SerieRepository.getEpisode getContext
+let getEpisodeLinq = SerieRepository.getEpisode getContext
 let addSerie = SerieRepository.addSerie getContext
 let addSerieAsync = SerieRepository.addSerieAsync getContext
 let updateSerie = SerieRepository.updateSerie getContext

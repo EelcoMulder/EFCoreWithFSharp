@@ -1,8 +1,11 @@
 namespace EFCore.DataAccess
 open System
 open Microsoft.EntityFrameworkCore
-open Microsoft.EntityFrameworkCore.Storage.Converters
+open Microsoft.EntityFrameworkCore.Storage.ValueConversion
 open EFCore.Model
+open System.Collections.ObjectModel
+
+
 
 type SerieContext =
     inherit DbContext
@@ -16,6 +19,7 @@ type SerieContext =
 
         let ssconvert = ValueConverter<SerieStatus, string>((fun v -> v.ToString()), (fun v -> Enum.Parse(typedefof<SerieStatus>, v) :?> SerieStatus))
         modelBuilder.Entity<Serie>().Property(fun e -> e.Status).HasConversion(ssconvert) |> ignore      
+
 
     [<DefaultValue>]
     val mutable series:DbSet<Serie>

@@ -30,7 +30,6 @@ and [<CLIMutable>] Episode =
     Name: string
     Description: string
     Status: EpisodeStatus
-    [<NotMapped>]Serie: Option<Serie>
   }
 
 
